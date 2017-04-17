@@ -1,0 +1,50 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background: transparent;
+	font-family: 'Amatic SC', cursive;
+	font-family: 'Rock Salt', cursive;
+}
+html {
+	background: url("http://cdn.wallpapersafari.com/9/71/4lkLQh.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#page-wrap {
+	width: 400px;
+	margin: 50px auto;
+	padding: 20px;
+	background: white;
+	-moz-box-shadow: 0 0 20px black;
+	-webkit-box-shadow: 0 0 20px black;
+	box-shadow: 0 0 20px black;
+}
+#buttonsView {
+	/*padding: 20px;*/
+}
+h3 {
+	color: yellow;
+	text-align: left;
+	text-shadow: -1px 0 beige, 0 1px black, 1px 0 black, 0 -1px black;
+	line-height: 50px;
+	margin-left: 12px;
+}
+p {
+	color: white;
+}
+#addAnimal {
+	padding: 10px;
+	font-style: bold;
+}
+.animal-input {
+	padding: 20px;
+}
+input {
+	align-content: center;
+}
+#animals-view {
+	float: left;
+}
