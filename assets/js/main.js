@@ -1,16 +1,16 @@
 // Initial array of animals
-var animals = [ 'Cat', 'Dog', 'Squirrel', 'Mouse', 'Capybara', 'Goat',
-  'Parrot', 'Girrafe', 'Lion', 'Bear' ];
+var animals = [ "Cat", "Dog", "Squirrel", "Mouse", "Capybara", "Goat",
+  "Parrot", "Girrafe", "Lion", "Bear" ];
 
 // displayanimalInfo function renders to the HTML to display the images
 function displayanimalInfo() {
 
   // empty div
-	$( '#animalsView' )
+	$( "#animalsView" )
 		.empty();
 
 	var animal = $( this )
-		.attr( 'data-name' );
+		.attr( "data-name" );
 
   // allows the user to search for an animal on giphy
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal +
@@ -19,7 +19,7 @@ function displayanimalInfo() {
   //retriees the appropriate images from the API
 	$.ajax( {
 			url: queryURL,
-			method: 'GET'
+			method: "GET"
 		} )
 		.done( function( response ) {
 
@@ -34,53 +34,53 @@ function displayanimalInfo() {
 				} else {
 					console.log( response )
 
-          //gather the images' ratings
+          //gather the images" ratings
 					var rating = results[ i ].rating;
 
           //displays the rating of the image on the page
-					var p = $( '<p>' )
+					var p = $( "<p>" )
 						.text( "Rating: " + rating );
 
-					var animalImage = $( '<img>' );
+					var animalImage = $( "<img>" );
 
-					animalImage.attr( 'src', results[ i ].images.fixed_height_still.url );
-					animalImage.attr( 'data-still', results[ i ].images.fixed_height_still.url );
-					animalImage.attr( 'data-animate', results[ i ].images.fixed_height.url );
-					animalImage.attr( 'data-state', 'still' );
-					animalImage.addClass( 'animalImage' );
+					animalImage.attr( "src", results[ i ].images.fixed_height_still.url );
+					animalImage.attr( "data-still", results[ i ].images.fixed_height_still.url );
+					animalImage.attr( "data-animate", results[ i ].images.fixed_height.url );
+					animalImage.attr( "data-state", "still" );
+					animalImage.addClass( "animalImage" );
 
-					$( '#animalsView' )
+					$( "#animalsView" )
 						.append( p );
-					$( '#animalsView' )
+					$( "#animalsView" )
 						.append( animalImage );
 				}
 
 			}
 
-      // when clicking on an animal's image (cont.)
-			$( '.animalImage' )
-				.on( 'click', function() {
+      // when clicking on an animal"s image (cont.)
+			$( ".animalImage" )
+				.on( "click", function() {
 					event.preventDefault();
 
           // ...add a specific state for the image
 					var state = $( this )
-						.attr( 'data-state' );
+						.attr( "data-state" );
 					console.log( state );
 
            // if the image is STILl, upon clicking, change it to ANIMATE and vice-versa
-					if ( state == 'still' ) {
+					if ( state == "still" ) {
 						$( this )
-							.attr( 'src', $( this )
-								.data( 'animate' ) );
+							.attr( "src", $( this )
+								.data( "animate" ) );
 						$( this )
-							.attr( 'data-state', 'animate' );
+							.attr( "data-state", "animate" );
 					}
             else {
 						$( this )
-							.attr( 'src', $( this )
-								.data( 'still' ) );
+							.attr( "src", $( this )
+								.data( "still" ) );
 						$( this )
-							.attr( 'data-state', 'still' );
+							.attr( "data-state", "still" );
 					}
 				} );
 		});
@@ -90,7 +90,7 @@ function displayanimalInfo() {
 function renderButtons() {
 
   // Deletes the current images before adding new buttons
-	$( '#buttonsView' )
+	$( "#buttonsView" )
 		.empty();
 
 	// Loops through the animals array
@@ -98,29 +98,29 @@ function renderButtons() {
 
     //For each animal...
     // give it a button
-		var a = $( '<button>' )
-    // add the class 'animal'
-		a.addClass( 'animal' );
-    // add the class 'btn btn-success'; makes it green to go with the theme
+		var a = $( "<button>" )
+    // add the class "animal"
+		a.addClass( "animal" );
+    // add the class "btn btn-success"; makes it green to go with the theme
 		a.addClass( "btn btn-success" );
-    // add the class 'btn btn-primary btn-sm'
+    // add the class "btn btn-primary btn-sm"
 		a.addClass( "btn btn-primary btn-sm" );
     // add a data attribute
-		a.attr( 'data-name', animals[ i ] );
+		a.attr( "data-name", animals[ i ] );
     // display button text
 		a.text( animals[ i ] );
-		$( '#buttonsView' )
+		$( "#buttonsView" )
 			.append( a );
 	}
 }
 
 // If the submit button is clicked...
-$( '#addAnimal' )
-	.on( 'click', function() {
+$( "#addAnimal" )
+	.on( "click", function() {
 		event.preventDefault();
 
 		// Grab the text from the form...
-		var animal = $( '#animal-input' )
+		var animal = $( "#animal-input" )
 			.val()
 			.trim();
 
@@ -136,7 +136,7 @@ $( '#addAnimal' )
 
 // displays animalInfo
 $( document )
-	.on( 'click', '.animal', displayanimalInfo );
+	.on( "click", ".animal", displayanimalInfo );
 
 // runs the renderButtons function
 renderButtons();
