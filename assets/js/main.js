@@ -60,7 +60,7 @@ function displayanimalInfo() {
       // when clicking on an animal"s image (cont.)
 			$( ".animalImage" )
 				.on( "click", function() {
-					event.preventDefault();
+					// event.preventDefault();
 
           // ...add a specific state for the image
 					var state = $( this )
