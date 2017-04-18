@@ -13,7 +13,7 @@ function displayanimalInfo() {
 		.attr( "data-name" );
 
   // allows the user to search for an animal on giphy
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal +
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal +
 		"&api_key=dc6zaTOxFJmzC&limit=10";
 
   //retriees the appropriate images from the API
